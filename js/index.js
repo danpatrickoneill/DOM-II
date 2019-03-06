@@ -41,6 +41,10 @@ images.forEach(img => img.addEventListener('mouseover', function(event) {
   event.target.style.opacity = .5;
 }))
 
+images[0].addEventListener('mouseover', function(event) {
+  event.target.style.opacity = 1;
+})
+
 images.forEach(img => img.addEventListener('mouseleave', function(event) {
   event.target.style.opacity = 1;
 }))
@@ -51,6 +55,13 @@ const destinations = document.querySelectorAll('.content-pick')
 console.log(destinations)
 destinations.forEach(div => div.addEventListener('wheel', function(event) {
   event.target.style.justifyContent = 'flex-end'
+}))
+
+const subdestinations = document.querySelectorAll('.destination p');
+console.log(subdestinations)
+subdestinations.forEach(p => p.addEventListener('wheel', function(event) {
+  event.stopPropagation()
+  event.target.style.background = 'deepskyblue'
 }))
 
 // Footer collection and events
